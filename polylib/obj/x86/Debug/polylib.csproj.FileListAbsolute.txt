@@ -1,0 +1,5 @@
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\bin\x86\Debug\polylib.dll
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\bin\x86\Debug\polylib.pdb
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Debug\polylib.dll
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Debug\polylib.pdb

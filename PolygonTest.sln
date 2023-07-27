@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolygonTest", "PolygonTest\PolygonTest\PolygonTest.csproj", "{0295D543-C55D-42C1-93D0-5204A6AC0A6B}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PolygonTestContent", "PolygonTest\PolygonTestContent\PolygonTestContent.contentproj", "{C1349C9C-2B86-4FFF-AAEE-CE6CC2D56E04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "polylib", "polylib\polylib.csproj", "{A8295D30-5EA5-4C84-B930-77A40FDA657D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0295D543-C55D-42C1-93D0-5204A6AC0A6B}.Debug|x86.ActiveCfg = Debug|x86
+		{0295D543-C55D-42C1-93D0-5204A6AC0A6B}.Debug|x86.Build.0 = Debug|x86
+		{0295D543-C55D-42C1-93D0-5204A6AC0A6B}.Release|x86.ActiveCfg = Release|x86
+		{0295D543-C55D-42C1-93D0-5204A6AC0A6B}.Release|x86.Build.0 = Release|x86
+		{C1349C9C-2B86-4FFF-AAEE-CE6CC2D56E04}.Debug|x86.ActiveCfg = Debug|x86
+		{C1349C9C-2B86-4FFF-AAEE-CE6CC2D56E04}.Release|x86.ActiveCfg = Release|x86
+		{A8295D30-5EA5-4C84-B930-77A40FDA657D}.Debug|x86.ActiveCfg = Debug|x86
+		{A8295D30-5EA5-4C84-B930-77A40FDA657D}.Debug|x86.Build.0 = Debug|x86
+		{A8295D30-5EA5-4C84-B930-77A40FDA657D}.Release|x86.ActiveCfg = Release|x86
+		{A8295D30-5EA5-4C84-B930-77A40FDA657D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
