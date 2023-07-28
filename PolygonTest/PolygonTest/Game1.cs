@@ -1,36 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using PolyLib;
 
 namespace PolygonTest
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        LineBatch lineBatch;
-        Polygon2D polygonA;
-        Polygon2D polygonB;
-        private Texture2D uiAim;
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private LineBatch _lineBatch;
+        private Polygon2D _polygonA;
+        private Polygon2D _polygonB;
+        private Texture2D _marker;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
-            polygonA = Polygon2D.FromTriangle(300, 300, 100);
-            polygonB = Polygon2D.FromRectangle(new Rectangle(100, 100, 100, 50));
+            _polygonA = Polygon2D.FromTriangle(100, 100, 70);
+            _polygonB = Polygon2D.FromRectangle(new Rectangle(200, 200, 100, 50));
             IsMouseVisible = true;
 
             base.Initialize();
@@ -38,22 +31,22 @@ namespace PolygonTest
 
         protected override void LoadContent()
         {
-            lineBatch = new LineBatch(GraphicsDevice);
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            uiAim = Content.Load<Texture2D>(@"uiAim");
+            _lineBatch = new LineBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _marker = Content.Load<Texture2D>(@"_marker");
         }
 
         protected override void Update(GameTime gameTime)
         {
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.D))
-                polygonB.Translate(new Vector2(5, 0));
+                _polygonB.Translate(new Vector2(5, 0));
             if (keyboard.IsKeyDown(Keys.A))
-                polygonB.Translate(new Vector2(-5, 0));
+                _polygonB.Translate(new Vector2(-5, 0));
             if (keyboard.IsKeyDown(Keys.S))
-                polygonB.Translate(new Vector2(0, 5));
+                _polygonB.Translate(new Vector2(0, 5));
             if (keyboard.IsKeyDown(Keys.W))
-                polygonB.Translate(new Vector2(0, -5));
+                _polygonB.Translate(new Vector2(0, -5));
             base.Update(gameTime);
         }
 
@@ -61,17 +54,17 @@ namespace PolygonTest
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            if (polygonB.Intersects(polygonA))
-                spriteBatch.Draw(uiAim, Vector2.Zero, Color.Red);
+            _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            if (_polygonB.Intersects(_polygonA))
+                _spriteBatch.Draw(_marker, Vector2.Zero, Color.Red);
             else
-                spriteBatch.Draw(uiAim, Vector2.Zero, Color.White);
-            spriteBatch.End();
+                _spriteBatch.Draw(_marker, Vector2.Zero, Color.White);
+            _spriteBatch.End();
 
-            lineBatch.Begin();
-            lineBatch.DrawPolygon(polygonA, Color.White);
-            lineBatch.DrawPolygon(polygonB, Color.Black);
-            lineBatch.End();
+            _lineBatch.Begin();
+            _lineBatch.DrawPolygon(_polygonA, Color.White);
+            _lineBatch.DrawPolygon(_polygonB, Color.Black);
+            _lineBatch.End();
 
             base.Draw(gameTime);
         }
