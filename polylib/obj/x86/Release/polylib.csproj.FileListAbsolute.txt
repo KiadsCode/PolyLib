@@ -3,3 +3,4 @@ D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\bin\x86\Release\poly
 D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Release\polylib.dll
 D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Release\polylib.pdb
+D:\Visual Studio 2010 Ultimate\Projects\PolygonTest\polylib\obj\x86\Release\polylib.csprojResolveAssemblyReference.cache

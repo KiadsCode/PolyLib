@@ -12,16 +12,13 @@ using PolyLib;
 
 namespace PolygonTest
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LineBatch lineBatch;
-        Polygon2D polygonA = new Polygon2D();
-        Polygon2D polygonB = new Polygon2D();
+        Polygon2D polygonA;
+        Polygon2D polygonB;
         private Texture2D uiAim;
 
         public Game1()
@@ -32,32 +29,18 @@ namespace PolygonTest
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            polygonA.Add(new Vector2(100, 100));
-            polygonA.Add(new Vector2(150, 50));
-            polygonA.Add(new Vector2(200, 100));
-
-            polygonB = Polygon2D.ToPolygon(new Rectangle(100, 100, 100, 50));
-            //polygonB.Add(new Vector2(100, 50));
-            //polygonB.Add(new Vector2(100, 100));
-            //polygonB.Add(new Vector2(150, 100));
-            //polygonB.Add(new Vector2(150, 50));
+            polygonA = Polygon2D.FromTriangle(300, 300, 100);
+            polygonB = Polygon2D.FromRectangle(new Rectangle(100, 100, 100, 50));
+            IsMouseVisible = true;
 
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             lineBatch = new LineBatch(GraphicsDevice);
             spriteBatch = new SpriteBatch(GraphicsDevice);
             uiAim = Content.Load<Texture2D>(@"uiAim");
-
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -74,15 +57,10 @@ namespace PolygonTest
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             if (polygonB.Intersects(polygonA))
                 spriteBatch.Draw(uiAim, Vector2.Zero, Color.Red);

@@ -97,7 +97,7 @@ namespace PolyLib
 
         public bool Intersects(Rectangle rectangle)
         {
-            Polygon2D poly = ToPolygon(rectangle);
+            Polygon2D poly = FromRectangle(rectangle);
             Gjk gjk = new Gjk(this, poly);
             return gjk.CheckCollision();
         }
@@ -110,18 +110,49 @@ namespace PolyLib
         
         public static bool Intersects(Polygon2D a, Rectangle b)
         {
-            Polygon2D bb = ToPolygon(b);
+            Polygon2D bb = FromRectangle(b);
             Gjk gjk = new Gjk(a, bb);
             return gjk.CheckCollision();
         }
 
-        public static Polygon2D ToPolygon(Rectangle rectangle)
+        public static Polygon2D FromRectangle(Rectangle rectangle)
         {
             Polygon2D polygon = new Polygon2D();
             polygon.Add(new Vector2(rectangle.X, rectangle.Y));
             polygon.Add(new Vector2(rectangle.X, rectangle.Y + rectangle.Height));
             polygon.Add(new Vector2(rectangle.X + rectangle.Width, rectangle.Y + rectangle.Height));
             polygon.Add(new Vector2(rectangle.X + rectangle.Width, rectangle.Y));
+            return polygon;
+        }
+
+        public static Polygon2D FromRectangle(int x, int y, int width, int height)
+        {
+            Polygon2D polygon = new Polygon2D();
+            polygon.Add(new Vector2(x, y));
+            polygon.Add(new Vector2(x, y + height));
+            polygon.Add(new Vector2(x + width, y + height));
+            polygon.Add(new Vector2(x + width, y));
+            return polygon;
+        }
+
+        public static Polygon2D FromTriangle(int x, int y, int size)
+        {
+            Polygon2D polygon = new Polygon2D();
+            polygon.Add(new Vector2(x + size / 2, y));
+            polygon.Add(new Vector2(x, y + size));
+            polygon.Add(new Vector2(x + size, y + size));
+            return polygon;
+        }
+
+        public static Polygon2D FromTriangle(Vector2 position, int size)
+        {
+            int x = Convert.ToInt32(position.X);
+            int y = Convert.ToInt32(position.Y);
+
+            Polygon2D polygon = new Polygon2D();
+            polygon.Add(new Vector2(x + size / 2, y));
+            polygon.Add(new Vector2(x, y + size));
+            polygon.Add(new Vector2(x + size, y + size));
             return polygon;
         }
     }
